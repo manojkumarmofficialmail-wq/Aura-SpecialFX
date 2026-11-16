@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aura SpecialFX | Wedding & Event Special Effects in Kerala</title>
+<meta name="description" content="Cold pyro, dry ice entries, rose petal showers, foam parties and 360° video booth for weddings and events across Kerala. Based in Trivandrum.">
+<meta property="og:title" content="Aura SpecialFX | Bringing magic to every moment">
+<meta property="og:description" content="Wedding & event special effects across Kerala: cold pyro, dry ice, rose petals, foam party, 360° booth.">
+<meta property="og:image" content="assets/images/showreel-poster.jpg">
+<meta name="theme-color" content="#F7F4EC">
+<link rel="icon" href="assets/brand/aura-mark-gold.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand"><img src="assets/brand/aura-logo-green.png" alt="Aura SpecialFX"></a>
+    <ul id="menu">
+      <li><a href="#showreel">Showreel</a></li>
+      <li><a href="#effects">Effects</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#occasions">Occasions</a></li>
+      <li><a href="#packages">Packages</a></li>
+    </ul>
+    <a class="btn btn-gold" href="#enquire">Check your date</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO =================
+       Drop a clip at assets/videos/hero.mp4 and it plays behind the sparks.
+       Until then the poster photo shows. -->
+  <section class="hero" aria-label="Introduction">
+    <video class="hero-video" autoplay muted loop playsinline poster="assets/images/dry-ice-clouds.jpg">
+      <source src="assets/videos/hero.mp4" type="video/mp4">
+    </video>
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="wrap hero-inner">
+      <h1>Bringing magic to <em>every moment.</em></h1>
+      <p>Cold pyro, dry ice, rose petal showers, foam parties and a 360° video booth for weddings and celebrations across Kerala.</p>
+      <div class="ctas">
+        <a class="btn btn-gold" href="#enquire">Check your date</a>
+        <a class="btn btn-ghost" href="#showreel">Watch the showreel</a>
+      </div>
+    </div>
+    <div class="hint">Tap anywhere for a spark</div>
+  </section>
+
+
+  <!-- ================= SHOWREEL =================
+       assets/videos/showreel.mp4 (web cut). Full 1080p master is in /showreel. -->
+  <section class="reel-sec" id="showreel">
+    <div class="wrap">
+      <div class="head-row">
+        <div>
+          <h2>The 15-second <em>showreel.</em></h2>
+          <p class="lede">Five effects, one night. Sound on for the full experience.</p>
+        </div>
+      </div>
+      <div class="reel-frame" style="position:relative">
+        <video id="reel" src="assets/videos/showreel.mp4" poster="assets/images/showreel-poster.jpg" muted loop playsinline preload="metadata"></video>
+        <button class="btn btn-gold sound-btn" id="soundBtn" type="button">Play with sound</button>
+      </div>
+      <div class="reel-meta"><span>Cold pyro, dry ice, rose petals, foam party and the 360° booth.</span><a href="#enquire">Book these effects</a></div>
+    </div>
+  </section>
+
+  <!-- ================= MARQUEE ================= -->
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+  <!-- ================= EFFECTS STAGE ================= -->
+  <section class="effects" id="effects">
+    <div class="wrap">
+      <h2>Pick an effect, <em>see it live.</em></h2>
+      <p class="lede">Every effect is run by our own crew, timed to your music and your planner's cue sheet. Choose one to preview it on stage.</p>
+      <div class="stage-grid">
+        <ul class="fx-list" role="tablist" aria-label="Effects" id="fxList"></ul>
+        <div class="stage vf" id="stage" role="tabpanel" aria-live="polite">
+          <span class="vf-b"></span>
+          <canvas id="stageCanvas" aria-hidden="true"></canvas>
+          <div class="stage-tip">Tap the stage to trigger</div>
+          <div class="stage-copy">
+            <h3 id="fxTitle"></h3>
+            <p id="fxDesc"></p>
+            <div class="best" id="fxBest"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY =================
+       Items come from GALLERY in js/main.js. -->
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="head-row">
+        <div>
+          <h2>Straight from <em>the floor.</em></h2>
+          <p class="lede">Real entries, receptions and haldi parties we've worked across Kerala.</p>
+        </div>
+        <a class="btn btn-ghost" href="https://www.instagram.com/aura_specialfx/" target="_blank" rel="noopener">Follow on Instagram</a>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filter gallery"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery viewer">
+    <button class="lb-btn lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <div class="media" id="lbMedia"></div>
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Next">›</button>
+    <p class="cap" id="lbCap"></p>
+  </div>
+
+  <!-- ================= OCCASIONS ================= -->
+  <section class="occasions light" id="occasions">
+    <div class="wrap">
+      <h2>Made for the moments <em>people film.</em></h2>
+      <p class="lede">We plan effects around the part of the day guests will remember, and that your photographer will want to capture.</p>
+      <div class="occ-grid">
+        <article class="occ"><h3>Grand wedding entry</h3><p>Walk in on a bed of low cloud, framed by cold pyro on either side.</p><div class="pair">Dry ice + cold pyro</div></article>
+        <article class="occ"><h3>Reception & first dance</h3><p>A glittering shower or sparkular fountain on the beat drop.</p><div class="pair">Glitter + sparkulars</div></article>
+        <article class="occ"><h3>Haldi & mehendi</h3><p>Foam party with DJ, lights and sound so the afternoon turns into a party.</p><div class="pair">Foam + bubbles</div></article>
+        <article class="occ"><h3>Beach & destination weddings</h3><p>Rose petal showers by the sea, set up for open-air venues and wind.</p><div class="pair">Rose petals + hand pyro</div></article>
+        <article class="occ"><h3>Birthdays & engagements</h3><p>A 360° booth that hands every guest a ready-to-post clip.</p><div class="pair">360° booth + bubbles</div></article>
+        <article class="occ"><h3>Corporate & launches</h3><p>Reveal moments for stage launches, award nights and brand events.</p><div class="pair">Cold pyro + dry ice</div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PARTNERS ================= -->
+  <div class="trusted">
+    <div class="wrap">
+      <p>Effects partner on celebrations with</p>
+      <ul>
+        <li>Paramount Wedding Planners</li>
+        <li>Regal Dream</li>
+        <li>Alamkrita Weddings</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="light" id="process">
+    <div class="wrap">
+      <h2>From first message to <em>the big moment.</em></h2>
+      <div class="steps">
+        <div class="step"><h3>Send your date and venue</h3><p>WhatsApp or call us. We confirm availability the same day.</p></div>
+        <div class="step"><h3>Choose your effects</h3><p>We suggest a combination that suits your venue, timing and budget.</p></div>
+        <div class="step"><h3>We sync with your planner</h3><p>Cues are matched to your entry song, stage plan and photographer.</p></div>
+        <div class="step"><h3>Our crew runs it live</h3><p>We arrive early, set up safely and trigger each effect on cue.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PACKAGES =================
+       Confirm package contents with Aura before going live. -->
+  <section class="packages" id="packages">
+    <div class="wrap">
+      <h2>Our most-booked <em>packages.</em></h2>
+      <p class="lede">Every event is different, so we quote per booking. These are our most-booked combinations.</p>
+      <div class="pk-grid">
+        <article class="pk">
+          <h3>Signature Entry</h3>
+          <p class="for">For the couple's walk-in</p>
+          <ul><li>Dry ice low-fog carpet</li><li>Two cold pyro fountains</li><li>Rose petal shower</li><li>Cue sync with your entry song</li></ul>
+          <a class="btn btn-ghost" href="#enquire" data-pkg="Signature Entry">Get a quote</a>
+        </article>
+        <article class="pk feature">
+          <span class="tag">Most booked</span>
+          <h3>Reception Royale</h3>
+          <p class="for">Entry, first dance and cake moment</p>
+          <ul><li>Everything in Signature Entry</li><li>Hand pyro and sparkulars</li><li>Glitter shower on the first dance</li><li>Bubbles for the cake cutting</li><li>Dedicated crew lead on the night</li></ul>
+          <a class="btn btn-gold" href="#enquire" data-pkg="Reception Royale">Get a quote</a>
+        </article>
+        <article class="pk">
+          <h3>Haldi Foam Party</h3>
+          <p class="for">For haldi, mehendi and pool parties</p>
+          <ul><li>Foam cannon setup</li><li>DJ, lights and sound</li><li>Bubble machines</li><li>Add the 360° video booth</li></ul>
+          <a class="btn btn-ghost" href="#enquire" data-pkg="Haldi Foam Party">Get a quote</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ENQUIRY (opens WhatsApp) ================= -->
+  <section class="enquire" id="enquire">
+    <div class="wrap">
+      <div>
+        <h2>Check <em>your date.</em></h2>
+        <p class="lede">Tell us a little about your event. Your message opens in WhatsApp, ready to send, and we reply with availability and a quote.</p>
+        <div class="contact-lines">
+          <a href="tel:+918078899332"><small>Call</small><strong>+91 80788 99332</strong></a>
+          <a href="mailto:auraspecialfx@gmail.com"><small>Email</small><strong>auraspecialfx@gmail.com</strong></a>
+          <a href="https://www.instagram.com/aura_specialfx/" target="_blank" rel="noopener"><small>Instagram</small><strong>@aura_specialfx</strong></a>
+          <div><small>Based in</small><strong>Trivandrum, available across Kerala</strong></div>
+        </div>
+      </div>
+
+      <form id="enqForm" novalidate>
+        <div class="field"><label for="name">Your name</label><input id="name" autocomplete="name" required></div>
+        <div class="field"><label for="date">Event date</label><input id="date" type="date" required></div>
+        <div class="field"><label for="type">Occasion</label>
+          <select id="type"><option>Wedding</option><option>Reception</option><option>Haldi / Mehendi</option><option>Engagement</option><option>Birthday</option><option>Corporate event</option><option>Other</option></select>
+        </div>
+        <div class="field"><label for="venue">Venue or city</label><input id="venue" placeholder="e.g. Kovalam"></div>
+        <div class="field full"><label id="fxLbl">Effects you're interested in</label><div class="chips" role="group" aria-labelledby="fxLbl" id="chips"></div></div>
+        <div class="field full"><label for="pkg">Package</label>
+          <select id="pkg"><option>Not sure yet</option><option>Signature Entry</option><option>Reception Royale</option><option>Haldi Foam Party</option></select>
+        </div>
+        <div class="field full"><label for="notes">Anything else</label><textarea id="notes" rows="3" placeholder="Guest count, entry song, timing…"></textarea></div>
+        <button class="btn btn-gold" type="submit">Send on WhatsApp</button>
+        <p class="form-note" id="formNote">Opens WhatsApp with your details filled in.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand"><img src="assets/brand/aura-logo-green.png" alt="Aura SpecialFX"></a>
+    <nav><a href="https://www.instagram.com/aura_specialfx/" target="_blank" rel="noopener">Instagram</a><a href="https://linktr.ee/auraspecialfx" target="_blank" rel="noopener">Linktree</a><a href="tel:+918078899332">Call</a></nav>
+    <span>© <span id="yr"></span> Aura SpecialFX, Trivandrum</span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/918078899332?text=Hi%20Aura%20SpecialFX%2C%20I%27d%20like%20to%20check%20a%20date" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.2.6 4.4 1.7 6.3L3 29l7.3-1.9c1.8 1 3.8 1.5 5.8 1.5 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.1c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.3 1.1 1.2-4.2-.3-.4c-1-1.6-1.5-3.5-1.5-5.4C5.4 9.8 10.2 5.1 16 5.1s10.6 4.7 10.6 10.5S21.8 26.1 16 26.1zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.7-.4z"/></svg>
+</a>
+
+<script src="js/effects.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
